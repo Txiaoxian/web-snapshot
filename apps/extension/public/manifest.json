@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "网页快照分享工具插件",
+  "version": "1.0.0",
+  "description": "一键将当前页面保存为快照并生成分享链接",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "快照分享工具"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

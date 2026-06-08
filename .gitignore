@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+*.db
+*.db-journal
+/data
+apps/server/data
+apps/server/public/downloads/extension.zip
+apps/extension/dist
+apps/web/dist
+*.tar

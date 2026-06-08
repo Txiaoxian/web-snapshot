@@ -1,0 +1,29 @@
+{
+  "name": "web-snapshot-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "dev": "pnpm --filter server --filter web --parallel dev",
+    "dev:server": "pnpm --filter server dev",
+    "dev:web": "pnpm --filter web dev",
+    "build": "pnpm build:server && pnpm build:web && pnpm build:extension",
+    "build:server": "pnpm --filter server build",
+    "build:web": "pnpm --filter web build",
+    "build:extension": "pnpm --filter extension build",
+    "prisma:generate": "pnpm --filter server prisma:generate",
+    "prisma:migrate": "pnpm --filter server prisma:migrate",
+    "start": "pnpm --filter server start"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "prisma",
+      "@prisma/engines",
+      "esbuild"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+services:
+  web-snapshot:
+    image: web-snapshot:latest
+    container_name: web-snapshot
+    ports:
+      - "35128:3000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - PORT=3000
+      - PUBLIC_BASE_URL=http://localhost:35128 # 生产部署时，请修改为您服务器的实际公网 IP 域名与端口
+      - DATABASE_URL=file:/app/data/app.db
+      - STORAGE_DIR=/app/data/storage
+      - ADMIN_PASSWORD=woaishanqian
+    restart: unless-stopped
